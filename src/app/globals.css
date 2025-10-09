@@ -1,26 +1,74 @@
-@import "tailwindcss";
+/* Import Tailwind base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Custom color theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #bb7e5d; /* black background */
+  --foreground: #f0f8ea; /* yellow text */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Global body styles */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links/buttons theme */
+a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--foreground);
+  color: var(--background);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #e6c200; /* slightly darker yellow on hover */
+}
+
+/* Section styling */
+.section {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+/* Card styling */
+.card {
+  background-color: rgba(255, 215, 0, 0.1); /* semi-transparent yellow */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* For horizontal card layout */
+.card-horizontal {
+  flex-shrink: 0; /* prevent shrinking in horizontal flex container */
+  min-width: 150px; /* ensures all cards have uniform width */
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.card-horizontal:hover {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+/* Scroll container for horizontal cards */
+.horizontal-scroll {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
 }
