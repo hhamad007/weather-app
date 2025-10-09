@@ -49,14 +49,6 @@ export class ApiClient {
   }
 }
 
-      await this.responseStatusCheck(response);
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching weather by coordinates:', error);
-      throw new Error('Failed to fetch weather by location');
-    }
-  }
-
   async getFiveDayForecastByCity(city) {
     try {
       const response = await axios.get(`${BASE_URL}/forecast`, {
