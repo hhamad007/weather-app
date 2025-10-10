@@ -6,6 +6,7 @@ const BASE_URL = "https://api.open-meteo.com/v1/forecast";
 
 export class ApiClient {
   async responseStatusCheck(response) {
+    console.log(response);
     if (response.status !== 200 && response.status !== 201) {
       throw new Error(`Request failed with status ${response.status}`);
     }
