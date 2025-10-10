@@ -37,6 +37,7 @@ const LandingPage = () => {
   const [userCoords, setUserCoords] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState([]);
+  const [forecastType, setForecastType] = useState("1");
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -90,6 +91,8 @@ const LandingPage = () => {
       <Navbar
         selectedCity={selectedCity}
         setSelectedCity={setSelectedCity}
+        forecastType={forecastType}
+        setForecastType={setForecastType}
         setUserCoords={setUserCoords}
       />
 
