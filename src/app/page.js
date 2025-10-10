@@ -22,6 +22,7 @@ const LandingPage = () => {
   const [userCoords, setUserCoords] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState([]);
+  const [forecastType, setForecastType] = useState("1");
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -58,12 +59,14 @@ const LandingPage = () => {
       <Navbar
         selectedCity={selectedCity}
         setSelectedCity={setSelectedCity}
+        forecastType={forecastType}
+        setForecastType={setForecastType}
         setUserCoords={setUserCoords}
       />
 
       <section className="section">
-        <h1 className="text-5xl font-bold mb-4">WeatherApp</h1>
-        <p className="text-lg mb-6">Fast and accurate forecasts for your city</p>
+        <h1 className="text-5xl font-bold mb-4">Current Local Conditions</h1>
+        <p className="text-lg mb-6"> </p>
 
         {weatherData && (
           <div className="card mb-8 p-6 text-center">
@@ -87,7 +90,8 @@ const LandingPage = () => {
               <p className="text-3xl mb-2">
                 {weatherIcons[day.weathercode] || "🌤️"}
               </p>
-              <p>Max: {day.temperature}°C</p>
+              <p>Max: {day.temperature_max}°C</p>
+              <p>Min: {day.temperature_min}°C</p>
               <p>Wind: {day.windspeed} m/s</p>
             </div>
           ))}
