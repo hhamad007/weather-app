@@ -41,11 +41,6 @@ const Navbar = ({ selectedCity, setSelectedCity, forecastType, setForecastType, 
           )}
         </div>
 
-        <select value={forecastType} onChange={(e) => setForecastType(e.target.value)} style={styles.select}>
-          <option value="1">1-Day</option>
-          <option value="5">5-Day</option>
-        </select>
-
         <button
           onClick={() => {
             navigator.geolocation.getCurrentPosition((pos) => {
